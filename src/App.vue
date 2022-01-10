@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="App">
+    <CV />
+    <button @click="showIdleGame = !showIdleGame">Show game</button>
+    <idle-game-comp v-if="showIdleGame" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CV from "./components/CV";
+import IdleGameComp from "./components/IdleGameComp.vue";
+import "./assets/App.css";
+import "./assets/index.css";
+import "./assets/IdleGame.css";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    CV,
+    IdleGameComp,
+  },
+  data() {
+    return {
+      showIdleGame: false,
+    };
+  },
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
